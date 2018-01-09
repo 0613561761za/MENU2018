@@ -58,7 +58,7 @@ date +"                                   %H:%M:%S %Z" | lolcat
 echo ""
 echo ""
 PS3='เลือกเมนูที่ต้องการ โดยการพิมพ์ตัวเลขแล้ว ENTER: '
-options=("สร้างบัญชี SSH & OpenVPN" "Buat User SSH/OVPN Trial" "Perbarui User" "Ganti Password User SSH/OVPN" "Semua User Dan Tanggal Kadaluarsa" "Hapus User" "Buat User PPTP VPN" "Monitoring User Dan Tendang" "Monitor User Login" "Daftar User Aktif" "Daftar User Kadaluarsa" "Disable User Kadaluarsa" "Hapus User Kadaluarsa" "Banned User" "Unbanned User" "Penggunaan Ram" "Speedtest" "Benchmark" "Manual Kill Multi Login" "(ON) Auto Kill Multi Login" "(OFF) Auto Kill Multi Login" "Ganti Password VPS" "Bersihkan Cache Ram Manual" "Edit Banner Login" "Edit Banner Menu" "Lihat Lokasi User" "Restart Webmin" "Restart Server VPS" "Restart Dropbear" "Restart OpenSSH" "Restart Squid3" "Restart OpenVPN" "Ganti Port OpenSSH" "Ganti Port Dropbear" "Ganti Port Squid3" "Ganti Port OpenVPN" "Update Script VPS" "Carding" "Quit")
+options=("สร้างบัญชี SSH & OpenVPN" "สร้างบัญชีทดลอง SSH & OpenVPN" "เพิ่มเวลาที่ใช้งานของบัญชี SSH & OpenVPN" "เปลี่ยนรหัสผ่านบัญชี SSH/OpenVPN" "ลบบัญชี SSH & OpenVPN" "แสดงรายชื่อบัญชีทั้งหมด SSH & OpenVPN" "ลบผู้ใช้ SSH & OpenVPN ที่หมดอายุแล้ว" "ล็อกผู้ใช้ SSH & OpenVPN ที่หมดอายุแล้ว" "เปลี่ยน Port Dropbear" "เปลี่ยน Port OpenVpn" "เปลี่ยน Port OpenSSH" "เปลี่ยน Port Squid Proxy" "Restart OpenSSH" "Restart Dropbear" "Restart OpenVPN" "Restart PPTP VPN" "Restart Webmin" "Restart Squid Proxy" "ตั้งค่า Auto Reboot Server" "Reboot Server" "เปลี่ยน Password VPS" "แก้ไขข้อความการแสดงเมื่อเชื่อมต่อ SSH" "แก้ไขข้อความการแสดงเมื่อเชื่อมต่อ VPS" "Speedtest" "Benchmark" "ดูการใช้ RAM ของเซิร์ฟเวอร์" "เช็ค Bandwidth ที่ใช้" "ดูรายละเอียดของการติดตั้งระบบ" "อัพเดตสคริป vip" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -67,54 +67,54 @@ do
         user-add
         break
             ;;
-	"Buat User SSH/OVPN Trial")
+	"สร้างบัญชีทดลอง SSH & OpenVPN")
 	clear
 	user-gen
 	break
 	;;
-	"Perbarui User")
+	"เพิ่มเวลาที่ใช้งานของบัญชี SSH & OpenVPN")
 	clear
 	user-renew
 	break
 	;;
-	"Ganti Password User SSH/OVPN")
+	"เปลี่ยนรหัสผ่านบัญชี SSH/OpenVPN")
 	clear
 	user-pass
 	break
 	;;
-	"Semua User Dan Tanggal Kadaluarsa")
+	"ลบบัญชี SSH & OpenVPN")
 	clear
 	user-list | lolcat
 	break
 	;;
-	"Hapus User")
+	"แสดงรายชื่อบัญชีทั้งหมด SSH & OpenVPN")
 	clear
 	user-del
 	break
 	;;
-	"Buat User PPTP VPN")
+	"ลบผู้ใช้ SSH & OpenVPN ที่หมดอายุแล้ว")
 	clear
 	user-add-pptp
 	break
 	;;
-	"Monitoring User Dan Tendang")
+	"ล็อกผู้ใช้ SSH & OpenVPN ที่หมดอายุแล้ว")
 	clear
 	dropmon
 	break
 	;;
-	"Monitor User Login")
+	"เปลี่ยน Port Dropbear")
 	clear
 	user-login
 	break
 	;;
-	"Manual Kill Multi Login")
+	"เปลี่ยน Port OpenVpn")
 	clear
         read -p "Isikan Maximal User Login (1-2): " MULTILOGIN
         userlimit.sh $MULTILOGIN
 	userlimitssh.sh $MULTILOGIN
 	break
 	;;
-	"(ON) Auto Kill Multi Login")
+	"เปลี่ยน Port OpenSSH")
 	clear 
 	read -p "Isikan Maximal User Login (1-2): " MULTILOGIN2
 	#echo "@reboot root /root/userlimit.sh" > /etc/cron.d/userlimitreboot
@@ -143,7 +143,7 @@ nanti jangan lupa di matikan boss
 biar user senang bs multilogin lagi.." | boxes -d boy | lolcat
 	break
 	;;
-	"(OFF) Auto Kill Multi Login")
+	"เปลี่ยน Port Squid Proxy")
 	clear
 	service cron stop
 	rm -rf /etc/cron.d/userlimit1
@@ -162,14 +162,14 @@ biar user senang bs multilogin lagi.." | boxes -d boy | lolcat
 User Sudah Bisa Multi Login Lagi!!!" | boxes -d boy | lolcat
 	break
 	;;
-	"Ganti Password VPS")
+	"Restart OpenSSH")
 	clear
 	read -p "Silahkan isi password baru untuk VPS anda: " pass	
         echo "root:$pass" | chpasswd
 	echo "Ciieeee.. Ciieeeeeee.. Abis Ganti Password VPS Nie Yeeee...!!!"| boxes -d boy | lolcat
 	break
 	;;
-	"Bersihkan Cache Ram Manual")
+	"Restart Dropbear")
 	clear
 	echo "---------------------------------------------"
 	echo "Sebelum..." | lolcat
@@ -190,42 +190,42 @@ User Sudah Bisa Multi Login Lagi!!!" | boxes -d boy | lolcat
         echo ""
 	break
 	;;
-	"Daftar User Aktif")
+	"Restart OpenVPN")
 	clear
 	user-active-list | boxes -d dog | lolcat
 	break
 	;;
-	"Daftar User Kadaluarsa")
+	"Restart PPTP VPN")
 	clear
 	user-expire-list | lolcat
 	break
 	;;
-	"Disable User Kadaluarsa")
+	"Restart Webmin")
 	clear
 	disable-user-expire
 	break
 	;;
-	"Hapus User Kadaluarsa")
+	"Restart Squid Proxy")
 	clear
 	delete-user-expire
 	break
 	;;
-	"Banned User")
+	"ตั้งค่า Auto Reboot Server")
 	clear
 	banned-user
 	break
 	;;
-	"Unbanned User")
+	"Reboot Server")
 	clear
 	unbanned-user
 	break
 	;;
-	"Penggunaan Ram")
+	"เปลี่ยน Password VPS")
 	clear
 	ps-mem | boxes -d dog | lolcat
 	break
 	;;
-	"Speedtest")
+	"แก้ไขข้อความการแสดงเมื่อเชื่อมต่อ SSH")
 	clear
 	echo "SPEEDTEST SERVER" | boxes -d peek | lolcat
 	echo "-----------------------------------------"
@@ -233,13 +233,13 @@ User Sudah Bisa Multi Login Lagi!!!" | boxes -d boy | lolcat
 	echo "-----------------------------------------"
 	break
 	;;
-	"Benchmark")
+	"แก้ไขข้อความการแสดงเมื่อเชื่อมต่อ VPS")
 	clear
 	echo "BENCHMARK" | boxes -d peek | lolcat
 	benchmark | lolcat
 	break
 	;;
-        "Edit Banner Login")
+        "Speedtest")
 	clear
 	echo "-----------------------------------------------------------" | lolcat
 	echo -e "1.) Simpan text (CTRL + X, lalu ketik Y dan tekan Enter) " | lolcat
@@ -250,7 +250,7 @@ User Sudah Bisa Multi Login Lagi!!!" | boxes -d boy | lolcat
 	service dropbear restart && service ssh restart
 	break
 	;;
-	"Edit Banner Menu")
+	"Benchmark")
 	clear
 	echo "--------------------------------------------------------" | lolcat
 	echo -e "1. Simpan text (CTRL + X, lalu ketik Y dan tekan ENTER)" | lolcat
@@ -260,7 +260,7 @@ User Sudah Bisa Multi Login Lagi!!!" | boxes -d boy | lolcat
 	nano /usr/bin/bannermenu
 	break
 	;;
-	"Lihat Lokasi User")
+	"ดูการใช้ RAM ของเซิร์ฟเวอร์")
 	clear
 	user-login
 	echo "Contoh: 112.123.345.126 lalu Enter" | lolcat
@@ -269,123 +269,23 @@ User Sudah Bisa Multi Login Lagi!!!" | boxes -d boy | lolcat
 	echo "-----------------------------------" | lolcat
         break
 	;;
-	"Restart Webmin")
+	"เช็ค Bandwidth ที่ใช้")
 	clear
 	 service webmin restart
 	 echo "Webmin sudah di restart boss!!!" | boxes -d boy | lolcat
 	 break
 	 ;;
-	 "Restart Server VPS")
+	 "ดูรายละเอียดของการติดตั้งระบบ")
 	 clear
 	 reboot
 	 echo "sudah di restart tunggu sebentar ya boss!!!" | boxes -d boy | lolcat
 	 break
 	 ;;
-	 "Restart Dropbear")
+	 "อัพเดตสคริป vip")
 	 clear
 	 service dropbear restart
 	 echo "Dropbear sudah di restart boss!!!" | boxes -d boy | lolcat
 	 break
-	 ;;
-	 "Restart OpenSSH")
-	 clear
-	 service ssh restart
-	 echo "OpenSSH sudah di restart boss!!!" | boxes -d boy | lolcat
-	 break
-	 ;;
-	 "Restart OpenVPN")
-	 clear
-	 service openvpn restart
-	 echo "openvpn sudah di restart boss!!!" | boxes -d boy | lolcat
-	 break
-	 ;;
-	 "Restart Squid3")
-	 clear
-	 service squid3 restart
-	 echo "Squid3 sudah di restart boss!!!" | boxes -d boy | lolcat
-	 break
-	 ;;
-	 "Ganti Port OpenSSH")
-	 clear
-            echo "Silahkan ganti port Openssh anda lalu klik enter."| boxes -d peek | lolcat
-            echo "Port default dan Port 2 tidak boleh sama !!!"| lolcat
-	    echo "Port default: 22"| lolcat
-	    read -p "Port 2: " -e -i 143 PORT
-	    service dropbear stop
-	    service ssh stop
-	    service openvpn stop
-	    sed -i "6s/Port [0-9]*/Port $PORT/" /etc/ssh/sshd_config
-           service ssh start 
-	   service dropbear start
-	   service openvpn start
-            echo "Openssh Updated Port: $PORT"| lolcat
-	 break
-         ;;
-	 "Ganti Port Dropbear")
-	 clear
-            echo "Silahkan ganti port Dropbear anda lalu klik ENTER!!!
-Port dropbear tidak boleh sama dengan port openVPN/openSSH/squid3 !!!"| boxes -d peek | lolcat
-           echo "Port1: 443 (Default)"
-	    read -p "Port2: " -e -i 80 PORT
-	    service dropbear stop
-	    service ssh stop
-	    service openvpn stop
-            sed -i "s/DROPBEAR_PORT=[0-9]*/DROPBEAR_PORT=$PORT/g" /etc/default/dropbear
-	    #sed -i 's/DROPBEAR_EXTRA_ARGS="-p [0-9]*"/DROPBEAR_EXTRA_ARGS="-p 109"/g' /etc/default/dropbear	
-            service dropbear start
-	    service ssh start
-	    service openvpn start
-            echo "Dropbear Updated Port2 : $PORT"| lolcat
-	    #echo "Dropbear Updated : Port2 $PORT2" | lolcat
-	    #echo "Dropbear Updated : Port3 $PORT3" | lolcat
-	 break
-	 ;;
-	 "Ganti Port Squid3")
-	 clear
-	 echo "Silahkan ganti port Squid3 anda lalu klik enter"| boxes -d dog | lolcat
-	    echo "Isi dengan angka tidak boleh huruf !!!"| lolcat
-	    echo -e "Port Squid3 1: 8080"
-	    read -p "Port Squid3 2: " -e -i 3128 PORT
-            #sed -i 's/http_port [0-9]*\nhttp_port [0-9]*/http_port $PORT1\nhttp_port $PORT2/g' /etc/squid3/squid.conf
-            sed -i "23s/http_port [0-9]*/http_port $PORT/" /etc/squid3/squid.conf
-	   service squid3 restart
-            echo "Squid3 Updated Port: $PORT"| lolcat
-			break
-			;;
-			"Speedtest")
-			clear
-			python speedtest.py --share | lolcat
-			break		
-	 ;;
-	 "Ganti Port OpenVPN")
-	 clear
-	           echo "Silahkan ganti port OpenVPN anda lalu klik enter?"| boxes -d peek | lolcat
-            read -p "Port: " -e -i 55 PORT
-	    service dropbear stop
-	    service ssh stop
-	    service openvpn stop
-            #sed -i "s/port [0-9]*/port $PORT/" /etc/openvpn/1194.conf
-	    cp /etc/openvpn/client.ovpn /home/vps/public_html/client.ovpn
-            sed -i "s/ipserver ports/$MYIP $PORT/g" /home/vps/public_html/client.ovpn
-	    sed -i "s/ipserver/$MYIP/g" /home/vps/public_html/client.ovpn
-	   service openvpn start
-	    service dropbear start
-	    service ssh start
-	 break
-	 ;;
-	 "Update Script VPS")
-	 clear
-	 /usr/bin/menu-update-script-vps.sh
-	 break
-	 ;;
-	 "Carding")
-	 clear
-	 card
-	 break
-	 ;;
-	"Quit")
-	
-	break
 	;;
 	 
         *) echo invalid option;
