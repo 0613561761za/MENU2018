@@ -62,7 +62,7 @@ options=("สร้าง User-Vip" "Buat User SSH/OVPN Trial" "Perbarui User" "
 select opt in "${options[@]}"
 do
     case $opt in
-        "Buat User SSH/OVPN")
+        "สร้าง User-Vip")
 	clear
         user-add
         break
