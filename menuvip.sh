@@ -23,12 +23,12 @@ color3='\e[0m'
 	swap=$( free -m | awk 'NR==4 {print $2}' )
 	up=$(uptime|awk '{ $1=$2=$(NF-6)=$(NF-5)=$(NF-4)=$(NF-3)=$(NF-2)=$(NF-1)=$NF=""; print }')
 	
-	echo -e " [+] \e[032;1mCPU model:\e[0m $cname"
-	echo -e " [+] \e[032;1mNumber of cores:\e[0m $cores"
-	echo -e " [+] \e[032;1mCPU frequency:\e[0m $freq MHz"
-	echo -e " [+] \e[032;1mTotal amount of ram:\e[0m $tram MB"
-	echo -e " [+] \e[032;1mTotal amount of swap:\e[0m $swap MB"
-	echo -e " [+] \e[032;1mSystem uptime:\e[0m $up"
+lolcat -F 0.3 -S 0 /usr/bin/bannermenu
+echo "                           Server: $MYIP" | lolcat
+date +"                           %A, %d-%m-%Y" | lolcat
+date +"                                   %H:%M:%S %Z" | lolcat
+echo ""
+echo ""
 	echo  "--------------------------------------------" 
 	echo -e " [+] ${color1}1${color3}.  สร้างบัญชีแบบกำหนดเอง"
 	echo -e " [+] ${color1}2${color3}.  สร้างบัญชีแบบอัตโนมัติ เลือกจำนวน บัญชี"
