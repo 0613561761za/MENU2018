@@ -30,7 +30,7 @@ cd
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 
 # check registered ip
-wget -q -O "IP" "$source/debian7/IP.txt"
+wget -q -O "IP" "$source/IP.txt"
 if ! grep -w -q $MYIP IP; then
 	echo "ขออภัย IP ของท่านไม่สามารถใช้สคริปต์นี้ได้!"
 	echo "ติดต่อ: HERE BIRD LNWSHOP / (097-026-7262)"
