@@ -46,18 +46,18 @@ echo "--------------------------------- OCS Panels Installer for Debian --------
 echo "                    DEVELOPED HERE BIRD LNWSHOP / (097-026-7262)                    "
 echo ""
 echo ""
-echo "Saya perlu mengajukan beberapa pertanyaan sebelum memulai setup"
-echo "คุณสามารถออกจากตัวเลือกเริ่มต้นและเพียงแค่กด Enter ถ้าคุณเห็นด้วยกับทางเลือก"
+echo "ยินดีต้อนรับสู่ Osc Panel Auto Script : กรุณายืนยันการตั้งค่าต่าง ๆ ดังนี้"
+echo "คุณสามารถใช้ข้อมูลของตัวเองได้เพียงแค่ กดลบ หรือ กด Enter ถ้าคุณเห็นด้วยกับข้อมูลของเรา"
 echo ""
 echo "1.ตั้งรหัสผ่านใหม่สำหรับ user root MySQL:"
-read -p "Password baru: " -e -i muluu123 DatabasePass
+read -p "Password ใหม่: " -e -i lnwseed DatabasePass
 echo ""
 echo "2.ตั้งค่าชื่อฐานข้อมูลสำหรับ OCS Panels"
 echo "โปรดใช้ตัวอัพษรปกติเท่านั้นห้ามมีอักขระพิเศษอื่นๆที่ไม่ใช่ขีดล่าง (_)"
 read -p "Name Database: " -e -i OCS_PANEL DatabaseName
 echo ""
 echo "เอาล่ะนี่คือทั้งหมดที่ระบบ Ocs Script ต้องการ เราพร้อมที่จะติดตั้งแผง OCS ของคุณแล้ว"
-read -n1 -r -p "Tekan sembarang tombol untuk melanjutkan..."
+read -n1 -r -p "กดปุ่ม Enter เพื่อดำเนินการต่อ ..."
 service nginx stop
 service php5-fpm stop
 service php5-cli stop
