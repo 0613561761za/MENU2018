@@ -17,6 +17,7 @@ else
 	exit
 fi
 
+#source file
 	source="http://103.86.50.109/vip9"
 
 
@@ -157,15 +158,6 @@ echo ""
 read -p "หากคุณเชื่อว่าขั้นตอนข้างต้นได้ทำเสร็จแล้วโปรดกดปุ่ม [Enter] เพื่อดำเนินการต่อ ..."
 echo ""
 
-sed -i '$ i\deb http://download.webmin.com/download/repository sarge contrib' /etc/apt/sources.list
-sed -i '$ i\deb http://webmin.mirror.somersettechsolutions.co.uk/repository sarge contrib' /etc/apt/sources.list
-cd /root
-wget http://www.webmin.com/jcameron-key.asc
-apt-key add jcameron-key.asc
-apt-get update
-apt-get install -y webmin
-sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
-service webmin restart
 
 apt-get -y --force-yes -f install libxml-parser-perl
 
