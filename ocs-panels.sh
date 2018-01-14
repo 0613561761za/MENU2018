@@ -17,10 +17,6 @@ else
 	exit
 fi
 
-#vps="zvur";
-vps="aneka";
-
-
 	source="http://103.86.50.109/vip9"
 
 
