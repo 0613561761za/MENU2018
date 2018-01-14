@@ -5,36 +5,6 @@ if [ $USER != 'root' ]; then
 	exit
 fi
 
-# initialisasi var
-export DEBIAN_FRONTEND=noninteractive
-OS=`uname -m`;
-
-if [[ -e /etc/debian_version ]]; then
-	#OS=debian
-	RCLOCAL='/etc/rc.local'
-else
-	echo "ดูเหมือนว่า คุณไม่ได้ใช้ตัวติดตั้งนี้ในระบบ Debian"
-	exit
-fi
-
-#source file
-	source="http://103.86.50.109/vip9"
-
-
-# go to root
-cd
-
-MYIP=$(wget -qO- ipv4.icanhazip.com);
-
-# check registered ip
-wget -q -O "IP" "$source/IP.txt"
-if ! grep -w -q $MYIP IP; then
-	echo "ขออภัย IP ของท่านไม่สามารถใช้สคริปต์นี้ได้!"
-	echo "ติดต่อ: HERE BIRD LNWSHOP / (097-026-7262)"
-	rm -f /root/IP
-	exit
-fi
-
 #https://github.com/adenvt/OcsPanels/wiki/tutor-debian
 
 clear
