@@ -29,36 +29,25 @@ color3='\e[0m'
 	echo -e " [o] \e[032;1mTotal amount of ram:\e[0m $tram MB"
 	echo -e " [o] \e[032;1mTotal amount of swap:\e[0m $swap MB"
 	echo -e " [o] \e[032;1mSystem uptime:\e[0m $up"
-	echo  "--------------------------------------------" 
+	echo  "-----------------------------------------------------------------" 
 	echo -e " [o] ${color1}1${color3}.  สร้างบัญชีแบบกำหนดเอง"
 	echo -e " [o] ${color1}2${color3}.  สร้างบัญชีแบบอัตโนมัติ เลือกจำนวน บัญชี"
 	echo -e " [o] ${color1}3${color3}.  สร้างบัญชีแบบทดลองใช้"
 	echo -e " [o] ${color1}4${color3}.  อัปเดตวันใช้งานของผู้ใช้"
 	echo -e " [o] ${color1}5${color3}.  เปลี่ยนรหัสผ่านของผู้ใช้"
+	echo  "-----------------------------------------------------------------" 	
 	echo -e " [o] ${color1}6${color3}.  ผู้ใช้ที่ถูกแบนที่เข้าสู่ระบบหลายบัญชีของผู้ใช้"
-	echo -e " [o] ${color1}7${color3}.  ผู้ใช้ที่ไม่ได้รับอนุญาต"
 	echo -e " [o] ${color1}8${color3}.  ล็อคผู้ใช้ของผู้ใช้"
 	echo -e " [o] ${color1}9${color3}.  ปลดล็อคผู้ใช้ของผู้ใช้"
 	echo -e " [o] ${color1}10${color3}. ลบบัญชีของผู้ใช้"
-	echo -e " [o] ${color1}11${color3}. ดูรายละเอียดผู้ใช้"
+	echo -e " [o] ${color1}15${color3}. กำจัดการเข้าสู่ระบบแบบซ้อน"	
+	echo  "-----------------------------------------------------------------" 		
 	echo -e " [o] ${color1}12${color3}. แสดงรายชื่อผู้ใช้"
-	echo -e " [o] ${color1}13${color3}. ตรวจสอบการเข้าสู่ระบบของผู้ใช้"
-	echo -e " [o] ${color1}14${color3}. ดูบันทึกการเข้าสู่ระบบของผู้ใช้"
-	echo -e " [o] ${color1}15${color3}. กำจัดการเข้าสู่ระบบแบบซ้อน"
-	echo -e " [o] ${color1}16${color3}. แสดงผู้ใช้ที่ไกล้จะหมดอายุ"
 	echo -e " [o] ${color1}17${color3}. แสดงผู้ใช้ที่หมดอายุแล้ว"
 	echo -e " [o] ${color1}18${color3}. ลบผู้ใช้ที่หมดอายุแล้ว"
-	echo -e " [o] ${color1}19${color3}. ล็อกผู้ใช้ที่หมดอายุแล้ว"
-	echo -e " [o] ${color1}20${color3}. ดูรายชื่อผู้ใช้ที่สนใจ"
-	echo -e " [o] ${color1}21${color3}. ดูรายชื่อผู้ใช้ที่ถูกสั่งห้าม"
-	echo -e " [o] ${color1}22${color3}. สร้างบัญชี PPTP VPN"
-	echo -e " [o] ${color1}23${color3}. นำบัญชี PPTP VPN ออก"
-	echo -e " [o] ${color1}24${color3}. ดูรายละเอียดบัญชี PPTP VPN"
-	echo -e " [o] ${color1}25${color3}. ตรวจสอบการเข้าสู่ระบบ PPTP VPN"
-	echo -e " [o] ${color1}26${color3}. ดูรายชื่อผู้ใช้ PPTP VPN"
 	echo -e " [o] ${color1}27${color3}. ทดสอบความเร็ว"
-	echo -e " [o] ${color1}28${color3}. มาตรฐานเซิร์ฟเวอร์"
 	echo -e " [o] ${color1}29${color3}. ดูการใช้ RAM ของเซิร์ฟเวอร์"
+	echo  "-----------------------------------------------------------------" 	
 if [[ "$OS" = 'debian' ]]; then 
 	echo -e " [o] ${color1}30${color3}. รีสตาร์ท OpenSSH"
 	echo -e " [o] ${color1}31${color3}. รีสตาร์ท DropBear"
@@ -74,14 +63,14 @@ else
 	echo -e " [o] ${color1}34${color3}. รีสตาร์ท Webmin"
 	echo -e " [o] ${color1}35${color3}. รีสตาร์ท SquidProxy"
 fi
-	echo -e " [o] ${color1}36${color3}. แก้ไขพอร์ตเซิร์ฟเวอร์"
+	echo  "-----------------------------------------------------------------" 	
 	echo -e " [o] ${color1}37${color3}. ตั้งค่าเซิร์ฟเวอร์รีบูตอัตโนมัติ"
 	echo -e " [o] ${color1}38${color3}. รีสตาร์ทเซิร์ฟเวอร์"
 	echo -e " [o] ${color1}39${color3}. เปลี่ยนรหัสผ่านเซิร์ฟเวอร์"
 	echo -e " [o] ${color1}40${color3}. ดูบันทึกการติดตั้ง"
 	echo -e " [o] ${color1}41${color3}. อัปเดตเดี๋ยวนี้"
 	echo -e ""
-	echo  "------------ AUTOSCRIPT CREATED BY เฮียเบิร์ด แงะตลอด ------------" 
+	echo  "-------------- CREATED BY OCSPANEL.INFO 0970267262 --------------" 
 	echo -e ""
 	read -p " [o] โปรดใส่ตัวเลือกของเมนู (ตัวเลข): " x
 if test $x -eq 1; then
@@ -97,54 +86,23 @@ user-password
 elif test $x -eq 6; then
 read -p " [+] กรอกจำนวนเงินเข้าสู่ระบบสูงสุด (1-2): " MULTILOGIN
 user-ban $MULTILOGIN
-elif test $x -eq 7; then
-user-unban
 elif test $x -eq 8; then
 user-lock
 elif test $x -eq 9; then
 user-unlock
 elif test $x -eq 10; then
 user-delete
-elif test $x -eq 11; then
-user-detail
 elif test $x -eq 12; then
 user-list
-elif test $x -eq 13; then
-user-login
-elif test $x -eq 14; then
-user-log
 elif test $x -eq 15; then
 read -p " [+] กรอกจำนวนเงินเข้าสู่ระบบสูงสุด (1-2): " MULTILOGIN
 user-limit $MULTILOGIN
-elif test $x -eq 16; then
-infouser
 elif test $x -eq 17; then
 expireduser
 elif test $x -eq 18; then
 user-delete-expired
-elif test $x -eq 19; then
-clear
-echo " [+] สคริปต์นี้จะทำงานโดยอัตโนมัติทุกๆ 12 ชั่วโมง"
-echo " [+] คุณไม่จำเป็นต้องเรียกใช้ด้วยตนเอง"
-echo " [+] หากคุณยังต้องการเรียกใช้สคริปต์นี้ให้พิมพ์ user-expire"
-elif test $x -eq 20; then
-log-limit
-elif test $x -eq 21; then
-log-ban
-elif test $x -eq 22; then
-user-add-pptp
-elif test $x -eq 23; then
-user-delete-pptp
-elif test $x -eq 24; then
-user-detail-pptp
-elif test $x -eq 25; then
-user-login-pptp
-elif test $x -eq 26; then
-alluser-pptp
 elif test $x -eq 27; then
 speedtest --share
-elif test $x -eq 28; then
-bench-network
 elif test $x -eq 29; then
 ram
 elif test $x -eq 30; then
@@ -171,8 +129,6 @@ elif test $x -eq 35; then
 	else 
 		/etc/init.d/squid restart 
 	fi
-elif test $x -eq 36; then
-edit-port
 elif test $x -eq 37; then
 auto-reboot
 elif test $x -eq 38; then
