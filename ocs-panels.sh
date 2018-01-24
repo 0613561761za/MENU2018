@@ -25,15 +25,19 @@ read -p "Name Database: " -e -i OCS_PANEL DatabaseName
 echo ""
 echo "เอาล่ะนี่คือทั้งหมดที่ระบบ Ocs Script ต้องการ เราพร้อมที่จะติดตั้งแผง OCS ของคุณแล้ว"
 read -n1 -r -p "กดปุ่ม Enter เพื่อดำเนินการต่อ ..."
+
 service nginx stop
 service php5-fpm stop
 service php5-cli stop
-apt-get -y --purge remove nginx php5-fpm php5-cli
-#apt-get update
-apt-get update -y
-apt-get install build-essential expect -y
 
-apt-get install -y mysql-server
+apt-get update && apt-get upgrade -y
+apt-get install curl -y
+apt-get install php5 libapache2-mod-php5 php5-mcrypt -y
+service apache2 restart 
+
+apt-get install mysql-server
+mysql_install_db
+
 
 #mysql_secure_installation
 so1=$(expect -c "
@@ -60,7 +64,7 @@ echo "$so1"
 chown -R mysql:mysql /var/lib/mysql/
 chmod -R 755 /var/lib/mysql/
 
-apt-get install -y nginx php5 php5-fpm php5-cli php5-mysql php5-mcrypt
+apt-get install php5-curl
 #rm /etc/nginx/sites-enabled/default
 #rm /etc/nginx/sites-available/default
 #mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup
